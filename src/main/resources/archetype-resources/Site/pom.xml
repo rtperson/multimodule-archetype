@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- Project POM -->
+    <parent>
+        <groupId>${groupId}</groupId>
+        <artifactId>${rootArtifactId}</artifactId>
+        <version>${version}</version>
+    </parent>
+
+    <!-- The Basics -->
+    <artifactId>${rootArtifactId}-site</artifactId>
+    <name>${rootArtifactId} Site Module</name>
+    <version>${version}</version>
+
+    <!-- Project Information -->
+    <description>${rootArtifactId} Site Module</description>
+    <inceptionYear>2008</inceptionYear>
+
+    <developers>
+    </developers>
+
+    <contributors>
+    </contributors>
+
+
+    <!-- Build Settings -->
+    <build>
+        <finalName>${rootArtifactId}-site</finalName>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-site-plugin</artifactId>
+                <configuration>
+                    <locales>en</locales>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <!-- Report Settings -->
+
+    <!-- Dependencies -->
+    <dependencies>
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <!-- Distribution Settings -->
+    <distributionManagement>
+
+    </distributionManagement>
+
+    <!-- profiles -->
+    <profiles>
+        <profile>
+            <id>hudson</id>
+            <activation>
+                <property>
+                    <name>BUILD_NUMBER</name>
+                </property>
+            </activation>
+            <!--
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.codehaus.mojo</groupId>
+                        <artifactId>cobertura-maven-plugin</artifactId>
+                    </plugin>
+                </plugins>
+            </build>
+            -->
+        </profile>
+    </profiles>
+
+</project>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <!-- The Basics -->
+    <artifactId>${rootArtifactId}-webservice-client</artifactId>
+    <packaging>jar</packaging>
+    <name>${rootArtifactId} Web Service Client Library</name>
+    <version>${version}</version>
+
+    <!-- Project Information -->
+    <description>${rootArtifactId} Web Service Client Library</description>
+
+    <developers>
+    </developers>
+
+    <contributors>
+    </contributors>
+
+    <!-- Build Settings -->
+    <build>
+        <finalName>${rootArtifactId}-webservice-client</finalName>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.5</source>
+                    <target>1.5</target>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+                <version>1.10</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <wsdlUrls>
+                                <wsdlUrl>${basedir}/../WebService/target/jaxws/wsgen/wsdl/WebService.wsdl</wsdlUrl>
+                            </wsdlUrls>
+                            <packageName>${package}.ws.client</packageName>
+                            <sourceDestDir>${basedir}/src/main/java</sourceDestDir>
+                            <destDir>${basedir}/target/jaxws</destDir>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <properties>
+        <netbeans.hint.deploy.server>Tomcat60</netbeans.hint.deploy.server>
+    </properties>
+    
+
+    <!-- Report Settings -->
+
+    <!-- Dependencies -->
+    <dependencies>
+        <dependency>
+            <groupId>${groupId}</groupId>
+            <artifactId>${rootArtifactId}-api</artifactId>
+        </dependency>
+    </dependencies>
+    
+</project>
